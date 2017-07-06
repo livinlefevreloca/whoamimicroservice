@@ -2,9 +2,14 @@
 // where your node app starts
 
 // init project
-var http = require("http");
+const http = require("http");
+const url = require("url");
+
 var app = http.createServer(function(req, res){
-  
+  var myURL = url.parse(req.url);
+  if(myURL.pathname === "/api/whoami"){
+    
+  }
 });
 
 

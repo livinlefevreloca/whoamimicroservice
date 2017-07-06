@@ -3,7 +3,9 @@
 
 // init project
 var http = require("http");
-var app = http.createServer();
+var app = http.createServer(function(req, res){
+  
+});
 
 
 

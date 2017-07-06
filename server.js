@@ -15,8 +15,8 @@ var app = http.createServer(function(req, res){
     var lang = req.headers["accept-language"];
     resObj["ipaddress"] = ip;
     resObj["language"] = lang;
-    resObj["software"] = headers.match(/\(\S+\)/g)[0];
-    res.json(resObj);
+    resObj["software"] = headers.match(/\([^)]*\)/g)[0];
+    res.end(JSON.stringify(resObj));
   }
 });
 

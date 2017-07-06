@@ -4,10 +4,14 @@
 // init project
 const http = require("http");
 const url = require("url");
-
+var resObj = {};
 var app = http.createServer(function(req, res){
+  res.writeHead(200, "OK");
   var myURL = url.parse(req.url);
   if(myURL.pathname === "/api/whoami"){
+    var ip = req.connection.remoteAddress;
+    var lang = req.headers["accept-language"];
+    var
     
   }
 });

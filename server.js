@@ -4,10 +4,15 @@
 // init project
 const express = require("express");
 const app = express();
-
+var resObj = {};
 app.get("/api/whoami", function(req, res){
-  req.writeHead(200, "OK");
-  
+  var ip = req.ips[1];
+  var lang = req.headers["accept-language"];
+  var sftwre = req.headers["user-agent"];
+  resObj["ipadress"] = ip;
+  resObj["language"] = lang;
+  resObj["software"] = sftwre;
+  res.json(resObj);
 })
 
 

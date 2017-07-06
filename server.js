@@ -11,8 +11,12 @@ var app = http.createServer(function(req, res){
   var myURL = url.parse(req.url);
   if(myURL.pathname === "/api/whoami"){
     var headers = req.headers["user-agent"];
-    console.log(headers)
-    res.end(headers);
+    var ip = req.connection.remoteAddress;
+    var lang = req.headers["accept-language"];
+    resObj["ipaddress"] = ip;
+    resObj["language"] = lang;
+    resObj["software"] = headers.match(/\(\S+\)/g)[0];
+    res.json(resObj);
   }
 });
 

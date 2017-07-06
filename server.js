@@ -6,9 +6,9 @@ const express = require("express");
 const app = express();
 var resObj = {};
 app.get("/api/whoami", function(req, res){
-  var ip = req.ips[1];
-  var lang = req.headers["accept-language"];
-  var sftwre = req.headers["user-agent"];
+  var ip = req.headers['x-forwarded-for'].split(",")[0];
+  var lang = req.headers["accept-language"].split(",")[0];
+  var sftwre = req.headers["user-agent"].match(/\([^)]*\)/g)[0];
   resObj["ipadress"] = ip;
   resObj["language"] = lang;
   resObj["software"] = sftwre;

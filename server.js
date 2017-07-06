@@ -5,7 +5,10 @@
 const express = require("express");
 const app = express();
 
-app.
+app.get("/api/whoami", function(req, res){
+  req.writeHead(200, "OK");
+  
+})
 
 
 

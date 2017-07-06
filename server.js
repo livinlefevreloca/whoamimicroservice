@@ -2,23 +2,10 @@
 // where your node app starts
 
 // init project
-const http = require("http");
-const url = require("url");
-const dns = require("dns");
-var resObj = {};
-var app = http.createServer(function(req, res){
-  res.writeHead(200, "OK");
-  var myURL = url.parse(req.url);
-  if(myURL.pathname === "/api/whoami"){
-    var headers = req.headers["user-agent"];
-    var ip = req.connection.remoteAddress;
-    var lang = req.headers["accept-language"];
-    resObj["ipaddress"] = ip;
-    resObj["language"] = lang;
-    resObj["software"] = headers.match(/\([^)]*\)/g)[0];
-    res.end(JSON.stringify(resObj));
-  }
-});
+const express = require("express");
+const app = express();
+
+app.
 
 
 
